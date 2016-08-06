@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react-dom.js"></script>
+  <script src="./dist/react-auto-mount.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+
+<body>
+  <div
+    data-component='HelloWorld'
+    data-props='{"name": "Ray"}'
+  />
+
+  <script type="text/babel">
+    class HelloWorld extends React.Component {
+      render () {
+        return <h1>{`Hello ${this.props.name}!`}</h1>;
+      }
+    }
+
+    reactAutoMount({
+      HelloWorld
+    });
+  </script>
+</body>
+</html>

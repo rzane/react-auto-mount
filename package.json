@@ -1,0 +1,29 @@
+{
+  "name": "react-auto-mount",
+  "version": "1.0.0",
+  "description": "Mount React components automagically",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dist": "webpack",
+    "prepublish": "webpack"
+  },
+  "author": "Ray Zane",
+  "license": "ISC",
+  "keywords": [
+    "react",
+    "mount",
+    "unobtrusive",
+    "ujs"
+  ],
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^3.0.1",
+    "webpack": "^1.13.1"
+  }
+}
