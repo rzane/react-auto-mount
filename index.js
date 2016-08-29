@@ -1,5 +1,13 @@
-var render = require('react-dom').render;
+var ReactDOM = require('react-dom');
 var createElement = require('react').createElement;
+
+function forEachDOMNode (callback) {
+  var elements = document.querySelectorAll('[data-component]');
+
+  for (var i = 0, len = elements.length; i < len; i++) {
+    callback(elements[i]);
+  }
+}
 
 function mountComponent (element, components) {
   var name = element.getAttribute('data-component');
@@ -9,13 +17,21 @@ function mountComponent (element, components) {
     return console.error('Failed to mount "' + name + '". No such component.');
   }
 
-  render(createElement(components[name], props), element);
+  ReactDOM.render(createElement(components[name], props), element);
 };
 
-module.exports = function reactAutoMount (components) {
-  var elements = document.querySelectorAll('[data-component]');
+function unmountAll () {
+  forEachDOMNode(function (element) {
+    ReactDOM.unmountComponentAtNode(element);
+  });
+}
 
-  for (var i = 0, len = elements.length; i < len; i++) {
-    mountComponent(elements[i], components);
-  }
+function reactAutoMount (components) {
+  forEachDOMNode(function (element) {
+    mountComponent(element, components);
+  });
 };
+
+module.exports = reactAutoMount;
+module.exports.mount = mountComponent;
+module.exports.unmountAll = unmountAll;
