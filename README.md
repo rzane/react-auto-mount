@@ -1,5 +1,7 @@
 # React Auto Mount
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rzane/react-auto-mount.svg)](https://greenkeeper.io/)
+
 A really tiny module to unobtrusively mount your components.
 
 ## Usage
